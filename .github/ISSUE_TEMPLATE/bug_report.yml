@@ -1,0 +1,76 @@
+name: 不具合の報告
+description: 表示や音声などの問題を報告します
+title: "[不具合] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。分かる範囲だけで構いません。
+        個人情報やパスワードは書かないでください。
+
+  - type: input
+    id: page_url
+    attributes:
+      label: 問題が起きたページ
+      description: ブラウザのアドレス欄にあるURLを貼り付けてください。
+      placeholder: https://www.coelang.tufs.ac.jp/mt/ko/gmod/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 使用ブラウザ
+      options:
+        - Chrome
+        - Edge
+        - Firefox
+        - その他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: script_manager
+    attributes:
+      label: ユーザースクリプト用の拡張機能
+      options:
+        - Tampermonkey
+        - Violentmonkey
+        - その他
+        - 分からない
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 起きたこと
+      description: どのボタンを押したか、どのような表示になったかを書いてください。
+      placeholder: |
+        例:
+        1. 例文ページを開いた
+        2. 右側の再生ボタンを押した
+        3. 音が再生されなかった
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 本来どうなってほしかったか
+      placeholder: 例文の音声が再生されると思っていた
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: スクリーンショット
+      description: 画像がある場合は、ここへドラッグ＆ドロップしてください。
+
+  - type: input
+    id: version
+    attributes:
+      label: スクリプトのバージョン
+      description: 分からない場合は空欄で構いません。
+      placeholder: 0.3.0
