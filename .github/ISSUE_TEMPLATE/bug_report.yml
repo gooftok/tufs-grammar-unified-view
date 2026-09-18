@@ -1,5 +1,5 @@
 name: 不具合の報告
-description: 表示や音声などの問題を報告します
+description: 表示崩れや音声再生などの不具合を報告します
 title: "[不具合] "
 labels:
   - bug
@@ -7,14 +7,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        報告ありがとうございます。分かる範囲だけで構いません。
-        個人情報やパスワードは書かないでください。
+        不具合報告の受付窓口です。把握できている範囲で記入してください。
+        個人情報やパスワードなどの機密情報は含めないでください。
 
   - type: input
     id: page_url
     attributes:
-      label: 問題が起きたページ
-      description: ブラウザのアドレス欄にあるURLを貼り付けてください。
+      label: 不具合が発生したページのURL
+      description: ブラウザのアドレスバーに表示されているURLを貼り付けてください。
       placeholder: https://www.coelang.tufs.ac.jp/mt/ko/gmod/...
     validations:
       required: true
@@ -22,7 +22,7 @@ body:
   - type: dropdown
     id: browser
     attributes:
-      label: 使用ブラウザ
+      label: 利用ブラウザ
       options:
         - Chrome
         - Edge
@@ -34,43 +34,45 @@ body:
   - type: dropdown
     id: script_manager
     attributes:
-      label: ユーザースクリプト用の拡張機能
+      label: ユーザースクリプト管理拡張機能
       options:
         - Tampermonkey
         - Violentmonkey
         - その他
-        - 分からない
+        - 不明
     validations:
       required: true
 
   - type: textarea
     id: problem
     attributes:
-      label: 起きたこと
-      description: どのボタンを押したか、どのような表示になったかを書いてください。
+      label: 発生した現象・再現手順
+      description: 操作手順と、発生した具体的な現象（エラー表示、レイアウト崩れなど）を記入してください。
       placeholder: |
         例:
         1. 例文ページを開いた
         2. 右側の再生ボタンを押した
-        3. 音が再生されなかった
+        3. 音声が再生されなかった
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: 本来どうなってほしかったか
-      placeholder: 例文の音声が再生されると思っていた
+      label: 期待していた動作
+      placeholder: 例文の音声が再生される
+    validations:
+      required: false
 
   - type: textarea
     id: screenshot
     attributes:
       label: スクリーンショット
-      description: 画像がある場合は、ここへドラッグ＆ドロップしてください。
+      description: 現象が確認できる画像がある場合は、ここにドラッグ＆ドロップしてください。
 
   - type: input
     id: version
     attributes:
       label: スクリプトのバージョン
-      description: 分からない場合は空欄で構いません。
+      description: 不明な場合は空欄のままで構いません。
       placeholder: 0.3.0
