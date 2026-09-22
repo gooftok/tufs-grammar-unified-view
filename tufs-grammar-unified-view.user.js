@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         TUFS 韓国語文法・1画面表示
+// @name         TUFS 文法・1画面表示
 // @namespace    local.tufs-unified-view
-// @version      0.3.0
-// @description  東外大言語モジュールの韓国語文法を、カード・解説・例文・練習問題の1画面で表示する
+// @version      0.4.0
+// @description  東外大言語モジュールの文法教材を、ページ構成に合わせて1画面で表示する
 // @homepageURL  https://github.com/gooftok/tufs-grammar-unified-view
 // @supportURL   https://github.com/gooftok/tufs-grammar-unified-view/issues
 // @downloadURL  https://raw.githubusercontent.com/gooftok/tufs-grammar-unified-view/main/tufs-grammar-unified-view.user.js
 // @updateURL    https://raw.githubusercontent.com/gooftok/tufs-grammar-unified-view/main/tufs-grammar-unified-view.user.js
-// @match        https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/*/lesson*/step*/*/*.html
+// @match        https://www.coelang.tufs.ac.jp/mt/*/gmod/courses/*/lesson*/step*/*/*.html
 // @run-at       document-idle
 // @noframes
 // @grant        none
@@ -22,8 +22,8 @@
   const DEBUG = false;
 
   /**
-   * 2026-07-29 時点の実サイトで確認したセレクタ。
-   * ページ種別によって本文ラッパーが異なるため、本文候補のみ複数指定している。
+   * 2026-09-22 に文法一覧の22区分で確認した共通テンプレート。
+   * 言語別の複製を作らず、本文候補とページ内リンクで教材ごとの差を扱う。
    */
   const SELECTORS = Object.freeze({
     container: "#container",
@@ -31,8 +31,6 @@
     breadcrumb: "#t_path4",
     content: "#content_box",
     pageTabs: "#gmodnav .gra_in_menu_container",
-    pageTabItems: "#gmodnav .gra_in_menu_container > p",
-    pageTabLinks: "#gmodnav .gra_in_menu_container a[href]",
     stepTitle: "#content_box > h2.gra_in_title",
     stepTitleText: "#step_title",
     footer: "#footer",
@@ -54,8 +52,10 @@
     audioDownloadAnchor: "a[href]",
     exampleContainer: ".instance, .gra_dl_box, tr, li",
     exampleText: ".instance_t, .instTxtBlk",
+    exampleNumber: ".orgNo",
+    exampleTranslation: ".translation",
+    examplePronunciation: ".pron",
     explanationExample: "#content_box .instance",
-    explanationExampleText: ".instance_t",
     explanationVoiceBox: ".voiceLinkBox",
   });
 
@@ -92,6 +92,7 @@
     frames: new Map(),
     observers: new Map(),
     audioEntries: [],
+    audioPageType: null,
     explanationAudioBindings: [],
     bulkDownloadController: null,
     bulkDownloadInProgress: false,
@@ -127,7 +128,7 @@
         return;
       }
 
-      if (!isSupportedPage(currentUrl)) {
+      if (!isSupportedPage(currentUrl) || !hasSupportedStructure(document)) {
         debug("対応外のURLです", currentUrl.href);
         return;
       }
@@ -140,6 +141,8 @@
       const discovered = discoverPageUrls(document, currentUrl);
       state.pageUrls = discovered.urls;
       state.unavailablePageTypes = discovered.unavailable;
+      state.audioPageType = state.pageUrls.instances ? "instances"
+        : state.pageUrls.explanation ? "explanation" : null;
 
       const navigation = extractStepNavigation(document);
       state.previousStepUrl = navigation.previousUrl;
@@ -163,30 +166,37 @@
   }
 
   function isSupportedPage(url) {
-    // @matchに加え、実行時にも韓国語文法Stepだけへ限定する。
+    // 言語・方言コードを含む文法Stepだけを対象にし、別分野は変更しない。
     return (
       url instanceof URL &&
       url.origin === "https://www.coelang.tufs.ac.jp" &&
-      url.pathname.startsWith("/mt/ko/gmod/courses/") &&
       parseCurrentRoute(url) !== null
     );
+  }
+
+  function hasSupportedStructure(sourceDocument) {
+    // 未知のテンプレートでは元ページを保つ。URLだけでは表示を置換しない。
+    return Boolean(sourceDocument.querySelector(SELECTORS.content) &&
+      sourceDocument.querySelector(SELECTORS.pageTabs) &&
+      sourceDocument.querySelector(SELECTORS.stepTitle));
   }
 
   function parseCurrentRoute(url) {
     const target = url instanceof URL ? url : new URL(url, window.location.href);
     const match = target.pathname.match(
-      /^(.*\/gmod\/courses\/([^/]+)\/(lesson[^/]+)\/(step[^/]+)\/)(card|explanation|instances|exercises)\/([^/]+\.html)$/i,
+      /^(\/mt\/([a-z]+(?:-[a-z]+)*)\/gmod\/courses\/([^/]+)\/(lesson[^/]+)\/(step[^/]+)\/)(card|explanation|instances|exercises)\/([^/]+\.html)$/,
     );
 
     if (!match) return null;
 
     return {
       stepRoot: match[1],
-      course: match[2],
-      lesson: match[3],
-      step: match[4],
-      pageType: match[5].toLowerCase(),
-      fileName: match[6],
+      language: match[2],
+      course: match[3],
+      lesson: match[4],
+      step: match[5],
+      pageType: match[6],
+      fileName: match[7],
     };
   }
 
@@ -194,63 +204,33 @@
     const urls = {};
     const unavailable = new Set();
     const tabContainer = sourceDocument.querySelector(SELECTORS.pageTabs);
-    const recognizedTypes = new Set();
+    const currentRoute = parseCurrentRoute(currentUrl);
+    if (!currentRoute) return { urls, unavailable };
 
     if (tabContainer) {
-      for (const item of tabContainer.querySelectorAll(":scope > p")) {
+      for (const item of tabContainer.children) {
         const label = normalizeNavigationLabel(item.textContent);
         const pageType = findPageTypeByLabel(label);
         const link = item.querySelector("a[href]");
 
-        if (pageType) {
-          recognizedTypes.add(pageType);
-
-          if (link) {
-            const resolved = normalizePageUrl(link.href);
-            if (resolved) {
-              urls[pageType] = resolved;
-              unavailable.delete(pageType);
-            }
-          } else {
-            unavailable.add(pageType);
-          }
-          continue;
+        if (pageType && !link) {
+          unavailable.add(pageType);
         }
-
-        // 表示文言が変わった場合でも、実在するリンクのURL構造を補助情報にする。
-        if (link) {
-          const linkedRoute = parseCurrentRoute(new URL(link.href, currentUrl));
-          if (linkedRoute && PAGE_ORDER.includes(linkedRoute.pageType)) {
-            urls[linkedRoute.pageType] = normalizePageUrl(link.href);
-          }
+      }
+      // 文言やタグ名に依存せず、同じStepの実リンクから種別を取得する。
+      for (const link of tabContainer.querySelectorAll("a[href]")) {
+        const resolved = normalizePageUrl(link.href);
+        const linkedRoute = resolved && parseCurrentRoute(resolved);
+        if (linkedRoute?.stepRoot === currentRoute.stepRoot) {
+          urls[linkedRoute.pageType] = resolved;
+          unavailable.delete(linkedRoute.pageType);
         }
       }
     }
 
-    const currentRoute = parseCurrentRoute(currentUrl);
-    if (currentRoute) {
-      urls[currentRoute.pageType] = normalizePageUrl(currentUrl);
-      unavailable.delete(currentRoute.pageType);
-    }
-
-    /**
-     * ナビゲーション自体が欠落した派生ページ向けの限定フォールバック。
-     * card / explanation / instances / exercises は実サイトで確認済みの
-     * ディレクトリ名である。無効な span がある項目には適用しない。
-     */
-    if (!tabContainer && currentRoute) {
-      for (const pageType of PAGE_ORDER) {
-        const fallback = new URL(
-          `${currentRoute.stepRoot}${pageType}/${currentRoute.fileName}`,
-          currentUrl.origin,
-        );
-        urls[pageType] = normalizePageUrl(fallback);
-      }
-    } else if (tabContainer) {
-      for (const pageType of recognizedTypes) {
-        if (!urls[pageType]) unavailable.add(pageType);
-      }
-    }
+    // 表記違いで同じStepに複数の教材番号があっても、現在のページを優先する。
+    urls[currentRoute.pageType] = normalizePageUrl(currentUrl);
+    unavailable.delete(currentRoute.pageType);
 
     return { urls, unavailable };
   }
@@ -315,7 +295,9 @@
     const audioList = createElement("div", "tufs-audio-list");
     audioList.setAttribute("aria-live", "polite");
     audioList.appendChild(
-      createElement("p", "tufs-audio-message", "例文を読み込んでいます…"),
+      createElement("p", "tufs-audio-message", state.audioPageType
+        ? `${PAGE_LABELS[state.audioPageType]}の音声を読み込んでいます…`
+        : "このStepには音声の取得元となるページがありません。"),
     );
     audioPanel.append(audioSummary, audioList);
 
@@ -355,10 +337,22 @@
 
     titleBlock.appendChild(title);
 
-    if (state.metadata.courseName) {
+    const subtitle = [state.metadata.languageName, state.metadata.courseName]
+      .filter(Boolean).join(" / ");
+    if (subtitle) {
       titleBlock.appendChild(
-        createElement("p", "tufs-unified-subtitle", state.metadata.courseName),
+        createElement("p", "tufs-unified-subtitle", subtitle),
       );
+    }
+    if (state.metadata.variants.length) {
+      const variants = createElement("nav", "tufs-unified-actions");
+      variants.setAttribute("aria-label", "教材の表記切り替え");
+      for (const variant of state.metadata.variants) {
+        variants.appendChild(createNavigationControl(
+          variant.label, variant.url, "tufs-unified-button",
+        ));
+      }
+      titleBlock.appendChild(variants);
     }
 
     const nav = createElement("nav", "tufs-unified-actions");
@@ -481,10 +475,6 @@
         ? `このStepには${label}がありません。`
         : `${label}のURLをページ内ナビゲーションから取得できませんでした。`;
       body.appendChild(createElement("p", "tufs-section-empty", message));
-
-      if (pageType === "instances") {
-        setAudioMessage("このStepには例文音声がありません。");
-      }
 
       state.loadPromises.push(
         Promise.resolve({ pageType, status: "unavailable" }),
@@ -612,6 +602,13 @@
       throw new Error("iframeの文書へアクセスできません。");
     }
 
+    // 同じ本文構造でも、転送先が別教材なら現在のStepへ混在させない。
+    const expected = new URL(state.pageUrls[pageType]);
+    const actual = new URL(frameWindow.location.href);
+    if (actual.origin !== expected.origin || actual.pathname !== expected.pathname) {
+      throw new Error("読み込み先が別の教材へ移動しました。元ページを開くか、再試行してください。");
+    }
+
     if (!frameDocument.querySelector(SELECTORS.content)) {
       throw new Error("読み込んだページに文法本文が見つかりません。");
     }
@@ -640,7 +637,7 @@
 
     if (navigationChanged) updateTopNavigation();
 
-    if (pageType === "instances") {
+    if (pageType === state.audioPageType) {
       const entries = findAudioEntries(frameDocument);
       state.audioEntries = entries;
       createAudioSidebar(entries, iframe);
@@ -916,7 +913,9 @@
       trigger.closest(SELECTORS.exampleContainer) || trigger.parentElement;
     if (!container) return null;
 
-    const textElement = container.querySelector(SELECTORS.exampleText);
+    // 原文・訳・発音表記が別要素の教材と、一つのspanにまとまる教材を扱う。
+    const textElement = container.querySelector(".instance_t") ||
+      container.querySelector(SELECTORS.exampleText);
     let rawText = normalizeDisplayText(textElement?.textContent);
 
     if (!rawText) {
@@ -932,6 +931,8 @@
     if (!rawText) rawText = `例文${index + 1}`;
 
     const parsed = splitExampleText(rawText, index + 1);
+    const translation = normalizeDisplayText(container.querySelector(SELECTORS.exampleTranslation)?.textContent);
+    const pronunciation = normalizeDisplayText(container.querySelector(SELECTORS.examplePronunciation)?.textContent);
     const controlBox = trigger.closest(".voiceLinkBox");
     const downloadImage = controlBox?.querySelector(
       SELECTORS.audioDownloadImage,
@@ -944,17 +945,25 @@
 
     return {
       index,
-      number: parsed.number,
+      number: normalizeDisplayText(container.querySelector(SELECTORS.exampleNumber)?.textContent) || parsed.number,
       sourceText: rawText,
-      matchKey: normalizeExampleMatchText(rawText),
-      primaryText: parsed.primaryText,
-      translation: parsed.translation,
+      matchKey: exampleMatchKey(container),
+      primaryText: translation ? rawText : parsed.primaryText,
+      translation: translation || parsed.translation,
+      pronunciation,
       trigger,
       controlBox,
       downloadUrl,
       hasDownloadControl: Boolean(downloadImage),
       ready: isAudioProxyReady(trigger),
     };
+  }
+
+  function exampleMatchKey(container) {
+    // 原文だけの一致で、訳・発音表記が異なる用例を結び付けない。
+    const text = container.querySelector(".instTxtBlk") ||
+      container.querySelector(SELECTORS.exampleText);
+    return normalizeExampleMatchText(text?.textContent);
   }
 
   function splitExampleText(text, fallbackNumber) {
@@ -986,7 +995,7 @@
     state.audioList.replaceChildren();
 
     if (entries.length === 0) {
-      setAudioMessage("この例文ページから再生項目を取得できませんでした。");
+      setAudioMessage(`この${PAGE_LABELS[state.audioPageType]}ページから再生項目を取得できませんでした。`);
       return;
     }
 
@@ -1013,14 +1022,23 @@
       const primary = createElement(
         "span",
         "tufs-audio-primary",
-        `${entry.number} ${entry.primaryText}`.trim(),
       );
+      primary.append(`${entry.number} `);
+      // 番号中の英字が、右から左に読む原文の方向判定へ混ざらないよう分離する。
+      const originalText = createElement("bdi", "", entry.primaryText);
+      originalText.dir = "auto";
+      primary.appendChild(originalText);
       text.appendChild(primary);
 
       if (entry.translation) {
         text.appendChild(
           createElement("span", "tufs-audio-translation", entry.translation),
         );
+      }
+      if (entry.pronunciation) {
+        const pronunciation = createElement("span", "tufs-audio-translation", entry.pronunciation);
+        pronunciation.dir = "auto";
+        text.appendChild(pronunciation);
       }
 
       button.append(play, text);
@@ -1077,7 +1095,7 @@
         createElement(
           "p",
           "tufs-audio-note",
-          "右側へ安全に移せない操作がある項目は、例文欄の元ボタンを残しています。",
+          "右側へ移せない操作がある項目は、本文の元ボタンを残しています。",
         ),
       );
     }
@@ -1509,6 +1527,7 @@
 
   function decorateExplanationAudioButtons() {
     clearExplanationAudioButtons();
+    if (state.audioPageType !== "instances") return;
 
     const explanationRecord = state.frames.get("explanation");
     const instancesRecord = state.frames.get("instances");
@@ -1530,8 +1549,7 @@
 
     const explanationKeyCounts = new Map();
     for (const example of explanationExamples) {
-      const text = example.querySelector(SELECTORS.explanationExampleText);
-      const key = normalizeExampleMatchText(text?.textContent);
+      const key = exampleMatchKey(example);
       if (!key) continue;
       explanationKeyCounts.set(key, (explanationKeyCounts.get(key) || 0) + 1);
     }
@@ -1546,9 +1564,8 @@
 
     let added = 0;
     for (const example of explanationExamples) {
-      const text = example.querySelector(SELECTORS.explanationExampleText);
       const voiceBox = example.querySelector(SELECTORS.explanationVoiceBox);
-      const key = normalizeExampleMatchText(text?.textContent);
+      const key = exampleMatchKey(example);
       const matchingEntries = entriesByKey.get(key) || [];
 
       // 順番で補完しない。両ページで一意な完全一致の場合だけ関連付ける。
@@ -1631,14 +1648,27 @@
     const breadcrumbLinks = breadcrumb
       ? [...breadcrumb.querySelectorAll("a[href]")]
       : [];
+    const moduleRoot = `/mt/${state.route.language}/gmod/`;
+    const courseRoot = `${moduleRoot}courses/${state.route.course}/`;
     const lessonLink = breadcrumbLinks.find((link) =>
-      /^Lesson/i.test(normalizeDisplayText(link.textContent)),
+      new URL(link.href).pathname.replace(/index\.html$/, "").replace(/\/?$/, "/") ===
+        `${courseRoot}${state.route.lesson}/`,
+    );
+    const languageLink = breadcrumbLinks.find((link) =>
+      new URL(link.href).pathname.replace(/\/?$/, "/") === `/mt/${state.route.language}/`,
     );
     const courseLink = breadcrumbLinks.find((link) =>
       /\/courses\/[^/]+\/?$/.test(new URL(link.href, location.href).pathname),
     );
 
     const titleElement = sourceDocument.querySelector(SELECTORS.stepTitle);
+    const variants = [...(titleElement?.querySelectorAll("a[href]") || [])]
+      .map((link) => ({ label: normalizeDisplayText(link.textContent), url: normalizePageUrl(link.href) }))
+      .filter(({ label, url }) => {
+        const route = url && parseCurrentRoute(url);
+        return label && route?.stepRoot === state.route.stepRoot &&
+          route.pageType === state.route.pageType && url !== state.originalUrl;
+      });
     let stepName = "";
     if (titleElement) {
       const clone = titleElement.cloneNode(true);
@@ -1647,6 +1677,8 @@
     }
 
     return {
+      variants,
+      languageName: normalizeDisplayText(languageLink?.textContent) || state.route.language,
       lessonName:
         normalizeDisplayText(lessonLink?.textContent) ||
         state.route?.lesson ||
@@ -1685,10 +1717,10 @@
     ) {
       clearExplanationAudioButtons();
     }
-    if (sectionRecord.pageType === "instances") {
+    if (sectionRecord.pageType === state.audioPageType) {
       cancelBulkDownload();
       state.audioEntries = [];
-      setAudioMessage("例文音声を読み込めませんでした。");
+      setAudioMessage("音声を読み込めませんでした。");
     }
 
     body.setAttribute("aria-busy", "false");
@@ -1740,19 +1772,15 @@
     section.section.classList.remove("tufs-section-error");
     iframe.hidden = true;
 
-    if (pageType === "instances") {
+    if (pageType === state.audioPageType) {
       cancelBulkDownload();
       state.audioEntries = [];
-      setAudioMessage("例文を読み込んでいます…");
+      setAudioMessage(`${PAGE_LABELS[pageType]}の音声を読み込んでいます…`);
     }
 
     startFrameTimeout(record);
-    try {
-      iframe.contentWindow.location.reload();
-    } catch (error) {
-      debug("contentWindow.reloadを使えないためsrcを再設定します", error);
-      iframe.src = record.url;
-    }
+    // 転送先や本文内リンクの移動先ではなく、要求した教材を読み直す。
+    iframe.src = record.url;
   }
 
   function startFrameTimeout(record) {
@@ -1823,7 +1851,10 @@
 
   function readCollapsedState(pageType) {
     try {
-      return localStorage.getItem(`${STORAGE_PREFIX}${pageType}`) === "true";
+      const value = localStorage.getItem(`${STORAGE_PREFIX}${state.route.language}.${pageType}`);
+      // 旧版の韓国語設定だけは引き継ぎ、他言語へは波及させない。
+      return (value ?? (state.route.language === "ko"
+        ? localStorage.getItem(`${STORAGE_PREFIX}${pageType}`) : null)) === "true";
     } catch (error) {
       debug("折りたたみ状態を読み取れませんでした", error);
       return false;
@@ -1832,7 +1863,7 @@
 
   function writeCollapsedState(pageType, collapsed) {
     try {
-      localStorage.setItem(`${STORAGE_PREFIX}${pageType}`, String(collapsed));
+      localStorage.setItem(`${STORAGE_PREFIX}${state.route.language}.${pageType}`, String(collapsed));
     } catch (error) {
       debug("折りたたみ状態を保存できませんでした", error);
     }

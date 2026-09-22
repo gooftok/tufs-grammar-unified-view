@@ -1,0 +1,864 @@
+{
+  "checkedAt": "2026-09-22T09:50:08.012Z",
+  "sourceSha256": "831dc9d5f45c420b0382fc636018511ad2b3ae7e2df545aa99e2d52135f90b5c",
+  "browserVersion": "153.0.4234.48",
+  "unitTests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "scope": {
+    "languageGroups": 22,
+    "distinctSteps": 65,
+    "distinctPageUrls": 195
+  },
+  "pages": [
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c01/lesson01/step1/instances/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 4,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 13,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c01/lesson00/step1/card/100.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c01/lesson00/step1/card/100.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c01/lesson01/step1/explanation/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 13,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 10,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/instances/001.html"
+      ],
+      "audioItems": 7,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c01/lesson01/step1/explanation/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson01/step1/card/201.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson01/step1/card/201.html",
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson01/step1/explanation/201.html",
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson01/step1/instances/201.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson01/step1/explanation/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c01/lesson01/step1/instances/001.html"
+      ],
+      "audioItems": 10,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson01/step1/explanation/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 4,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/card/091.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/card/091.html",
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/explanation/091.html"
+      ],
+      "audioItems": 4,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c01/lesson01/step1/card/003.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c01/lesson01/step1/card/003.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c01/lesson01/step1/explanation/003.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c01/lesson01/step1/instances/003.html"
+      ],
+      "audioItems": 4,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/instances/001.html"
+      ],
+      "audioItems": 16,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c01/lesson01/step1/card/002.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c01/lesson01/step1/card/002.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c01/lesson01/step1/explanation/002.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c01/lesson01/step1/instances/002.html"
+      ],
+      "audioItems": 7,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/explanation/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/instances/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/exercises/001.html"
+      ],
+      "audioItems": 10,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/grammar/gmod/courses/c01/lesson01/step1/card/001.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/grammar/gmod/courses/c01/lesson01/step1/card/001.html",
+        "https://www.coelang.tufs.ac.jp/mt/grammar/gmod/courses/c01/lesson01/step1/explanation/001.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson15/step2/card/032.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson15/step2/card/032.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson15/step2/explanation/032.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson15/step2/instances/032.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson28/step3/card/067.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson28/step3/card/067.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson28/step3/explanation/067.html",
+        "https://www.coelang.tufs.ac.jp/mt/en/gmod/courses/c02/lesson28/step3/instances/067.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson07/step2/card/017.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson07/step2/card/017.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson07/step2/explanation/017.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson07/step2/instances/017.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson07/step2/exercises/017.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson12/step2/card/036.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson12/step2/card/036.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson12/step2/explanation/036.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson12/step2/instances/036.html",
+        "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c03/lesson12/step2/exercises/036.html"
+      ],
+      "audioItems": 15,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson07/step3/card/026.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson07/step3/card/026.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson07/step3/explanation/026.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson07/step3/instances/026.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson07/step3/exercises/026.html"
+      ],
+      "audioItems": 10,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson12/step3/card/046.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson12/step3/card/046.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson12/step3/explanation/046.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson12/step3/instances/046.html",
+        "https://www.coelang.tufs.ac.jp/mt/fr/gmod/courses/c06/lesson12/step3/exercises/046.html"
+      ],
+      "audioItems": 13,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson07/step3/card/020.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson07/step3/card/020.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson07/step3/explanation/020.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson07/step3/instances/020.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson07/step3/exercises/020.html"
+      ],
+      "audioItems": 7,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson14/step3/card/061.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson14/step3/card/061.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson14/step3/explanation/061.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson14/step3/instances/061.html",
+        "https://www.coelang.tufs.ac.jp/mt/es/gmod/courses/c03/lesson14/step3/exercises/061.html"
+      ],
+      "audioItems": 13,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson06/step1/card/013.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson06/step1/card/013.html",
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson06/step1/explanation/013.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson10/step1/card/023.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson10/step1/card/023.html",
+        "https://www.coelang.tufs.ac.jp/mt/pt/gmod/courses/c03/lesson10/step1/explanation/023.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson07/step2/card/016.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson07/step2/card/016.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson07/step2/explanation/016.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson07/step2/instances/016.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson07/step2/exercises/016.html"
+      ],
+      "audioItems": 2,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson12/step3/card/037.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson12/step3/card/037.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson12/step3/explanation/037.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson12/step3/instances/037.html",
+        "https://www.coelang.tufs.ac.jp/mt/ru/gmod/courses/c04/lesson12/step3/exercises/037.html"
+      ],
+      "audioItems": 5,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson08/step2/card/035.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson08/step2/card/035.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson08/step2/explanation/035.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson08/step2/instances/035.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson08/step2/exercises/035.html"
+      ],
+      "audioItems": 7,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson15/step2/card/069.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson15/step2/card/069.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson15/step2/explanation/069.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson15/step2/instances/069.html",
+        "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c03/lesson15/step2/exercises/069.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson16/step4/card/459.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson16/step4/card/459.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson16/step4/explanation/459.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson16/step4/instances/459.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson30/step2/card/507.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson30/step2/card/507.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson30/step2/explanation/507.html",
+        "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c03/lesson30/step2/instances/507.html"
+      ],
+      "audioItems": 5,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson14/step3/card/009.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson14/step3/card/009.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson14/step3/explanation/009.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson14/step3/instances/009.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson14/step3/exercises/009.html"
+      ],
+      "audioItems": 9,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson27/step2/card/076.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson27/step2/card/076.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson27/step2/explanation/076.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson27/step2/instances/076.html",
+        "https://www.coelang.tufs.ac.jp/mt/mn/gmod/courses/c02/lesson27/step2/exercises/076.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson12/step3/card/253.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson12/step3/card/253.html",
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson12/step3/explanation/253.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson22/step2/card/292.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson22/step2/card/292.html",
+        "https://www.coelang.tufs.ac.jp/mt/id/gmod/courses/c01/lesson22/step2/explanation/292.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson11/step3/card/045.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson11/step3/card/045.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson11/step3/explanation/045.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson11/step3/instances/045.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson11/step3/exercises/045.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson21/step4/card/085.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson21/step4/card/085.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson21/step4/explanation/085.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson21/step4/instances/085.html",
+        "https://www.coelang.tufs.ac.jp/mt/ms/gmod/courses/c01/lesson21/step4/exercises/085.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson12/step4/card/043.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson12/step4/card/043.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson12/step4/explanation/043.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson12/step4/instances/043.html"
+      ],
+      "audioItems": 9,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson22/step2/card/066.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson22/step2/card/066.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson22/step2/explanation/066.html",
+        "https://www.coelang.tufs.ac.jp/mt/tl/gmod/courses/c01/lesson22/step2/instances/066.html"
+      ],
+      "audioItems": 8,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c10/lesson02/step3/card/113.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c10/lesson02/step3/card/113.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c10/lesson03/step2/card/202.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/lo/gmod/courses/c10/lesson03/step2/card/202.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson14/step02/card/025.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson14/step02/card/025.html",
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson14/step02/explanation/025.html",
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson14/step02/instances/025.html"
+      ],
+      "audioItems": 11,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson27/step02/card/055.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson27/step02/card/055.html",
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson27/step02/explanation/055.html",
+        "https://www.coelang.tufs.ac.jp/mt/vi/gmod/courses/c01/lesson27/step02/instances/055.html"
+      ],
+      "audioItems": 7,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson08/step2/card/025.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson08/step2/card/025.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson08/step2/explanation/025.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson08/step2/instances/025.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson08/step2/exercises/025.html"
+      ],
+      "audioItems": 4,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson15/step4/card/047.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson15/step4/card/047.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson15/step4/explanation/047.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson15/step4/instances/047.html",
+        "https://www.coelang.tufs.ac.jp/mt/km/gmod/courses/c02/lesson15/step4/exercises/047.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson02/step6/card/031.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson02/step6/card/031.html",
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson02/step6/explanation/031.html"
+      ],
+      "audioItems": 25,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson03/step28/card/075.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson03/step28/card/075.html",
+        "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c02/lesson03/step28/explanation/075.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson15/step15/card/416.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson15/step15/card/416.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson15/step15/explanation/416.html"
+      ],
+      "audioItems": 73,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson29/step29/card/430.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson29/step29/card/430.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar/gmod/courses/c02/lesson29/step29/explanation/430.html"
+      ],
+      "audioItems": 70,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson13/step3/card/046.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson13/step3/card/046.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson13/step3/explanation/046.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson24/step2/card/096.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson24/step2/card/096.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson24/step2/explanation/096.html"
+      ],
+      "audioItems": 3,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson12/step5/card/045.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson12/step5/card/045.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson12/step5/explanation/045.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson12/step5/instances/045.html"
+      ],
+      "audioItems": 6,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson23/step7/card/086.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson23/step7/card/086.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson23/step7/explanation/086.html",
+        "https://www.coelang.tufs.ac.jp/mt/ar-sy/gmod/courses/c03/lesson23/step7/instances/086.html"
+      ],
+      "audioItems": 5,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson12/step7/card/063.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson12/step7/card/063.html",
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson12/step7/explanation/063.html",
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson12/step7/exercises/063.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson23/step3/card/098.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson23/step3/card/098.html",
+        "https://www.coelang.tufs.ac.jp/mt/tr/gmod/courses/c01/lesson23/step3/explanation/098.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson25/step2/card/048.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson25/step2/card/048.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson25/step2/explanation/048.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson25/step2/instances/048.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson25/step2/exercises/048.html"
+      ],
+      "audioItems": 5,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson48/step2/card/092.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson48/step2/card/092.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson48/step2/explanation/092.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson48/step2/instances/092.html",
+        "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c02/lesson48/step2/exercises/092.html"
+      ],
+      "audioItems": 16,
+      "passed": true
+    },
+    {
+      "url": "https://www.coelang.tufs.ac.jp/mt/grammar/gmod/courses/c03/lesson01/step17/card/058.html",
+      "frameUrls": [
+        "https://www.coelang.tufs.ac.jp/mt/grammar/gmod/courses/c03/lesson01/step17/card/058.html"
+      ],
+      "audioItems": 0,
+      "passed": true
+    }
+  ],
+  "realAudioAndMobile": [
+    {
+      "language": "ko",
+      "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/instances/001.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/sound/instances/ins001_0_0.mp3",
+          "currentTime": 0.016432,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/card/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/explanation/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ko/gmod/courses/c01/lesson01/step1/instances/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-ko.png"
+    },
+    {
+      "language": "de",
+      "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/instances/001.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/de/gmod/sound/instances/ins001_0_0.mp3",
+          "currentTime": 0.01565,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/card/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/explanation/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/instances/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/de/gmod/courses/c01/lesson01/step1/exercises/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-de.png"
+    },
+    {
+      "language": "zh",
+      "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/instances/001.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/sound/instances/ins001_0_0.mp3",
+          "currentTime": 0.006473,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/card/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/explanation/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/instances/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/zh/gmod/courses/c01/lesson01/step1/exercises/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-zh.png"
+    },
+    {
+      "language": "ja",
+      "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/instances/001.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/sound/instances/ins001_0_0.mp3",
+          "currentTime": 0.014502,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/card/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/explanation/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/instances/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/courses/c01/lesson01/step1/exercises/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-ja.png"
+    },
+    {
+      "language": "ur",
+      "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/explanation/091.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/sound/instances/exp091_0_0.mp3",
+          "currentTime": 0.015099,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/card/091.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ur/gmod/courses/c01/lesson01/step1/explanation/091.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-ur.png"
+    },
+    {
+      "language": "ar-eg",
+      "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/instances/001.html",
+      "passed": true,
+      "media": [
+        {
+          "src": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/sound/instances/ins001_0_0.mp3",
+          "currentTime": 0.014726,
+          "error": null
+        }
+      ],
+      "narrowFrames": [
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/card/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/explanation/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        },
+        {
+          "url": "https://www.coelang.tufs.ac.jp/mt/ar-eg/gmod/courses/c01/lesson01/step1/instances/001.html",
+          "width": 368,
+          "scrollWidth": 368
+        }
+      ],
+      "outerOverflow": false,
+      "screenshot": "test-results/mobile-ar-eg.png"
+    }
+  ]
+}

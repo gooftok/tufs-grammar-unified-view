@@ -22,7 +22,7 @@ const userscript = (await readFile(scriptPath, "utf8")).replace(
   "url.origin === window.location.origin",
 );
 
-function navigation(pageType) {
+function navigation(pageType, scenario) {
   const labels = {
     card: "カード",
     explanation: "解説",
@@ -36,9 +36,11 @@ function navigation(pageType) {
         ${Object.entries(labels)
           .map(
             ([type, label]) =>
-              `<p class="${type === pageType ? "gra_in_menu" : "gra_in_menu_off"}">
-                <a href="${routes[type]}">${label}</a>
-              </p>`,
+              `<${scenario.tag} class="${type === pageType ? "gra_in_menu" : "gra_in_menu_off"}">
+                ${scenario.pages.includes(type)
+                  ? `<a href="${routes[type]}">${scenario.renamed ? type : label}</a>`
+                  : `<span>${label}</span>`}
+              </${scenario.tag}>`,
           )
           .join("")}
       </div>
@@ -156,7 +158,7 @@ function pageContent(pageType) {
     <div class="gra_in_content" id="exercises_box">
       <div id="ques_view_0" class="gra_ques_sec">
         <label>答え <input type="text"></label>
-        <a href="javascript:document.getElementById('answerBlock0').style.display='block'">
+        <a href="javascript:void(document.getElementById('answerBlock0').style.display='block')">
           Check Answer
         </a>
         <div class="answerBlock" id="answerBlock0" style="display:none">
@@ -168,8 +170,20 @@ function pageContent(pageType) {
   `;
 }
 
-function fixture(pageType) {
-  return `<!doctype html>
+// 言語名ではなく、観測した構造の差を再現するためのfixture。
+const scenarios = {
+  ko: { pages: ["card", "explanation", "instances", "exercises"] },
+  en: { pages: ["card", "explanation", "instances"], renamed: true },
+  de: { pages: ["card", "explanation", "instances", "exercises"], tag: "li", renamed: true },
+  "ar-eg": { pages: ["card", "explanation"], explanationAudio: true },
+  es: { pages: ["card"] },
+  zh: { pages: ["card", "explanation"], foreignLinks: true },
+  xx: { pages: ["card"], missingStructure: true },
+};
+
+function fixture(pageType, language = "ko", fileName = "401.html") {
+  const scenario = { tag: "p", ...scenarios[language] };
+  let html = `<!doctype html>
     <html lang="ja">
       <head>
         <meta charset="utf-8">
@@ -198,17 +212,42 @@ function fixture(pageType) {
             <a href="/mt/ko/gmod/courses/c03/lesson01/">Lesson01</a>
           </nav>
           <section class="clearfix" id="content_box">
-            ${navigation(pageType)}
+        ${navigation(pageType, scenario)}
             <h2 class="gra_in_title">
               Step1<span id="step_title"> : 001 : 입니다</span>
+              ${language === "ko" ? '<span id="komtype"><span>併記式</span><a href="./201.html">語幹式</a></span>' : ""}
             </h2>
-            ${pageContent(pageType)}
+            ${pageContent(pageType === "explanation" && scenario.explanationAudio ? "instances" : pageType)}
           </section>
           <footer id="footer">Copyright 東京外国語大学</footer>
         </div>
         <script src="/test-userscript.js"></script>
       </body>
     </html>`;
+  html = html.replaceAll("/mt/ko/", `/mt/${language}/`).replaceAll("401.html", fileName);
+  if (language !== "ko") {
+    html = html.replaceAll("朝鮮語", language).replaceAll("Lesson01</a>", "第1課</a>");
+  }
+  if (scenario.explanationAudio) {
+    html = html.replaceAll('<span class="instance_t">(1)한국어입니다.(韓国語です。)</span>',
+      '<span class="orgNo">(91/a)</span><span class="instance_t">أنا طالب.</span><div class="translation">(私は学生です。)</div><div class="pron">[ʔanaa ṭaalib]</div>');
+  }
+  if (language === "de") {
+    html = html.replaceAll('<span class="instance_t">(1)한국어입니다.(韓国語です。)</span>',
+      '<div class="instTxtBlk"><span class="orgNo">(1)</span><span class="instance_t">Ich lerne Deutsch.</span><div class="translation">(私はドイツ語を勉強する。)</div><div class="pron">[ɪç]</div></div>');
+    html = html.replaceAll('<span class="instance_t">(2)책입니다.(本です。)</span>',
+      `<div class="instTxtBlk"><span class="orgNo">(2)</span><span class="instance_t">Ein Buch.</span><div class="translation">(${pageType === "explanation" ? "別の訳" : "本"})</div></div>`);
+  }
+  if (scenario.foreignLinks) {
+    html = html.replace('<div class="gra_in_menu_container clearfix">',
+      `<div class="gra_in_menu_container clearfix">
+        <p><a href="${routes.instances}">例文</a></p>
+        <p><a href="/mt/zh/gmod/courses/c03/lesson01/step2/exercises/401.html">練習問題</a></p>
+        <p><a href="https://example.com/mt/zh/gmod/courses/c03/lesson01/step1/instances/401.html">例文</a></p>
+        <p><a href="/mt/zh/vmod/">例文</a></p>`);
+  }
+  if (scenario.missingStructure) html = html.replace('id="gmodnav"', 'id="unknown-nav"');
+  return html;
 }
 
 const server = http.createServer((request, response) => {
@@ -247,16 +286,18 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  const pageType = Object.entries(routes).find(
-    ([type, route]) => type !== "next" && route === requestUrl.pathname,
-  )?.[0];
+  const route = requestUrl.pathname.match(
+    /^\/mt\/([a-z-]+)\/gmod\/courses\/c03\/lesson01\/step1\/(card|explanation|instances|exercises)\/(401|201)\.html$/,
+  );
+  const language = route?.[1];
+  const pageType = route?.[2];
 
-  if (pageType) {
+  if (pageType && scenarios[language]?.pages.includes(pageType)) {
     response.writeHead(200, {
       "content-type": "text/html; charset=utf-8",
       "cache-control": "no-store",
     });
-    response.end(fixture(pageType));
+    response.end(fixture(pageType, language, `${route[3]}.html`));
     return;
   }
 
